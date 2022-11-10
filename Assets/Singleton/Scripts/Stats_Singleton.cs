@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class Stats_Singleton: MonoBehaviour
 {
-    private static Stats_Singleton uniqueInstance;
+    private static Stats_Singleton _uniqueInstance;
 
     public static Stats_Singleton getInstance {
         get {
-            if (!uniqueInstance) {
-                uniqueInstance = new GameObject().AddComponent<Stats_Singleton>();
-                uniqueInstance.name = uniqueInstance.GetType().ToString();
-                DontDestroyOnLoad(uniqueInstance.gameObject);
+            if (!_uniqueInstance) {
+                _uniqueInstance = new GameObject().AddComponent<Stats_Singleton>();
+                _uniqueInstance.name = _uniqueInstance.GetType().ToString();
+                DontDestroyOnLoad(_uniqueInstance.gameObject);
             }
-            return uniqueInstance; }
+            return _uniqueInstance; }
     }
     int _coins;
     public void UpdateCoins(int num) {
