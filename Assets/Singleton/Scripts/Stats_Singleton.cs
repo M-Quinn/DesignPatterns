@@ -1,21 +1,24 @@
 
-public class Stats_Singleton
-{
-    private static readonly Stats_Singleton uniqueInstance = new Stats_Singleton();
+using UnityEngine;
 
-    static Stats_Singleton() { }
-    private Stats_Singleton() { }
+public class Stats_Singleton: MonoBehaviour
+{
+    private static Stats_Singleton uniqueInstance;
 
     public static Stats_Singleton getInstance {
-        get { return uniqueInstance; }
+        get {
+            if (!uniqueInstance) {
+                uniqueInstance = new GameObject().AddComponent<Stats_Singleton>();
+                uniqueInstance.name = uniqueInstance.GetType().ToString();
+                DontDestroyOnLoad(uniqueInstance.gameObject);
+            }
+            return uniqueInstance; }
     }
     int _coins;
-    public void UpdateCoins(int num)
-    {
+    public void UpdateCoins(int num) {
         _coins += num;
     }
-    public int GetCoins()
-    {
+    public int GetCoins() {
         return _coins;
     }
 }
