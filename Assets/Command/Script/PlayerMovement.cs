@@ -5,17 +5,27 @@ using UnityEngine;
 namespace dev.MikeQ.Command {
     public class PlayerMovement : MonoBehaviour
     {
-        public void MoveUp() {
-            transform.position += Vector3.forward;
+        public string MoveUp() {
+            return CheckMovement(Vector3.forward);
         }
-        public void MoveDown() {
-            transform.position += Vector3.forward * -1;
+        public string MoveDown() {
+            return CheckMovement(Vector3.forward * -1);
         }
-        public void MoveRight() {
-            transform.position += Vector3.right;
+        public string MoveRight() {
+            return CheckMovement (Vector3.right);
         }
-        public void MoveLeft() {
-            transform.position += Vector3.right * -1;
+        public string MoveLeft() {
+            return CheckMovement (Vector3.right * -1);
+        }
+
+        private string CheckMovement(Vector3 direction)
+        {
+            if (Physics.Raycast(transform.position, direction, 1))
+            {
+                return "Failed";
+            }
+            transform.position += direction;
+            return "Success";
         }
     }
 }

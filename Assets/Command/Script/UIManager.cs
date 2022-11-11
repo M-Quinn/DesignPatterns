@@ -10,16 +10,16 @@ namespace dev.MikeQ.Command {
         [SerializeField] PlayerMovement _player;
 
         public void ButtonClickUp() {
-            _player.MoveUp();
+            _responseTextbox.text = _player.MoveUp();
         }
         public void ButtonClickDown() {
-            _player.MoveDown();
+            _responseTextbox.text = _player.MoveDown();
         }
         public void ButtonClickRight() {
-            _player.MoveRight();   
+            _responseTextbox.text = _player.MoveRight();   
         }
         public void ButtonClickLeft() {
-            _player.MoveLeft();
+            _responseTextbox.text = _player.MoveLeft();
         }
     }
 
