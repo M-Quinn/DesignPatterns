@@ -1,26 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace dev.MikeQ.Command {
+namespace dev.MikeQ.Command
+{
     public class UIManager : MonoBehaviour
     {
         [SerializeField] Text _responseTextbox;
         [SerializeField] PlayerMovement _player;
 
         public void ButtonClickUp() {
-            _responseTextbox.text = _player.MoveUp();
+            CreateCommand(Vector3.forward);
         }
         public void ButtonClickDown() {
-            _responseTextbox.text = _player.MoveDown();
+            CreateCommand(Vector3.forward*-1);
         }
         public void ButtonClickRight() {
-            _responseTextbox.text = _player.MoveRight();   
+            CreateCommand(Vector3.right);
         }
         public void ButtonClickLeft() {
-            _responseTextbox.text = _player.MoveLeft();
+            CreateCommand(Vector3.right*-1);
+        }
+
+        private void CreateCommand(Vector3 direction) {
+            ICommand command = new MoveCommand(_player, direction, _responseTextbox);
+            CommandHandler.ExecuteCommand(command);
         }
     }
-
 }
