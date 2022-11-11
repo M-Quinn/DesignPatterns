@@ -20,6 +20,9 @@ namespace dev.MikeQ.Command
         public void ButtonClickLeft() {
             CreateCommand(Vector3.right*-1);
         }
+        public void UndoButton() {
+            CommandHandler.UndoCommand();
+        }
 
         private void CreateCommand(Vector3 direction) {
             ICommand command = new MoveCommand(_player, direction, _responseTextbox);
