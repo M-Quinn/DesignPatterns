@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace dev.MikeQ.Singleton {
+namespace DesignPatterns.Singleton {
     public class UIManager : MonoBehaviour
     {
         [SerializeField] Text _scoreText, _sceneText;

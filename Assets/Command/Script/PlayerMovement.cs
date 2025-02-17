@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace dev.MikeQ.Command
+namespace DesignPatterns.Command
 {
     public class PlayerMovement : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-namespace dev.MikeQ.Singleton {
+namespace DesignPatterns.Singleton {
     public class Stats_Singleton : MonoBehaviour
     {
         private static Stats_Singleton _uniqueInstance;

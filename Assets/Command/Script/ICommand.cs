@@ -1,5 +1,5 @@
 
-namespace dev.MikeQ.Command {
+namespace DesignPatterns.Command {
     public interface ICommand 
     {
         void Execute();

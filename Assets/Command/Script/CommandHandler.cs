@@ -1,7 +1,7 @@
 
 using System.Collections.Generic;
 
-namespace dev.MikeQ.Command {
+namespace DesignPatterns.Command {
     public class CommandHandler 
     {
         private static Stack<ICommand> undoStack = new Stack<ICommand>();

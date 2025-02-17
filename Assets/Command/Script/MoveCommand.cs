@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace dev.MikeQ.Command {
+namespace DesignPatterns.Command {
     public class MoveCommand : ICommand
     {
         PlayerMovement _player;
