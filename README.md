@@ -1,5 +1,7 @@
 # DesignPatterns #
-This repository will hold design patterns with examples created inside Unity v2021.3.4
+This project is built for Unity 6, a 2021 version can be found in Releases.
+
+Programming design patterns can be hard to understand so this is a collection of practical examples for learning purposes.
 
 ## Current Design Patterns Included ##
 Design Pattern | Article
