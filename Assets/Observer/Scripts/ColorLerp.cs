@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -8,34 +7,34 @@ namespace DesignPatterns.Observer
 {
     public class ColorLerp : MonoBehaviour, IObserver
     {
-        [SerializeField] private Image _image;
+        [SerializeField] Image _image;
 
-        ISubject stateSubject;
-        private bool _isLerping = true;
+        ISubject _stateSubject;
+        bool _isLerping = true;
 
-        Coroutine lerpCoroutine;
+        Coroutine _lerpCoroutine;
 
         void OnEnable()
         {
-            if (stateSubject == null)
+            if (_stateSubject == null)
             {
-                stateSubject = FindObjectsByType<MonoBehaviour>(0).OfType<ISubject>().FirstOrDefault();
+                _stateSubject = FindObjectsByType<MonoBehaviour>(0).OfType<ISubject>().FirstOrDefault();
             }
 
-            stateSubject.RegisterObserver(this);
+            _stateSubject.RegisterObserver(this);
 
-            if (lerpCoroutine == null)
+            if (_lerpCoroutine == null)
             {
-                lerpCoroutine = StartCoroutine(lerpColorEnumerator());
+                _lerpCoroutine = StartCoroutine(lerpColorEnumerator());
             }
         }
 
         void OnDisable()
         {
-            stateSubject.UnregisterObserver(this);
+            _stateSubject.UnregisterObserver(this);
 
-            StopCoroutine(lerpCoroutine);
-            lerpCoroutine = null;
+            StopCoroutine(_lerpCoroutine);
+            _lerpCoroutine = null;
 
         }
 

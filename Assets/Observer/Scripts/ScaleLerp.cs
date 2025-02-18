@@ -1,41 +1,39 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 namespace DesignPatterns.Observer
 {
     public class ScaleLerp : MonoBehaviour, IObserver
     {
-        [SerializeField] private GameObject capsule;
+        [SerializeField] GameObject _capsule;
 
-        ISubject stateSubject;
-        private bool _isLerping = true;
+        ISubject _stateSubject;
+        bool _isLerping = true;
 
-        Coroutine lerpCoroutine;
+        Coroutine _lerpCoroutine;
 
         void OnEnable()
         {
-            if (stateSubject == null)
+            if (_stateSubject == null)
             {
-                stateSubject = FindObjectsByType<MonoBehaviour>(0).OfType<ISubject>().FirstOrDefault();
+                _stateSubject = FindObjectsByType<MonoBehaviour>(0).OfType<ISubject>().FirstOrDefault();
             }
 
-            stateSubject.RegisterObserver(this);
+            _stateSubject.RegisterObserver(this);
 
-            if (lerpCoroutine == null)
+            if (_lerpCoroutine == null)
             {
-                lerpCoroutine = StartCoroutine(lerpScaleEnumerator());
+                _lerpCoroutine = StartCoroutine(lerpScaleEnumerator());
             }
         }
 
         void OnDisable()
         {
-            stateSubject.UnregisterObserver(this);
+            _stateSubject.UnregisterObserver(this);
 
-            StopCoroutine(lerpCoroutine);
-            lerpCoroutine = null;
+            StopCoroutine(_lerpCoroutine);
+            _lerpCoroutine = null;
 
         }
 
@@ -64,13 +62,13 @@ namespace DesignPatterns.Observer
 
                     float scale = Mathf.Lerp(minSize, maxSize, t);
 
-                    capsule.transform.localScale = new Vector3(scale, scale, scale);
+                    _capsule.transform.localScale = new Vector3(scale, scale, scale);
 
                     elapsedTime += Time.deltaTime;
                     yield return null;
                 }
 
-                capsule.transform.localScale = new Vector3(maxSize, maxSize, maxSize);
+                _capsule.transform.localScale = new Vector3(maxSize, maxSize, maxSize);
                 elapsedTime = 0;
                 while (elapsedTime <= totalTime)
                 {
@@ -81,12 +79,12 @@ namespace DesignPatterns.Observer
 
                     float scale = Mathf.Lerp(maxSize, minSize, t);
 
-                    capsule.transform.localScale = new Vector3(scale, scale, scale);
+                    _capsule.transform.localScale = new Vector3(scale, scale, scale);
                     elapsedTime += Time.deltaTime;
                     yield return null;
                 }
 
-                capsule.transform.localScale = new Vector3(minSize, minSize, minSize);
+                _capsule.transform.localScale = new Vector3(minSize, minSize, minSize);
 
                 yield return null;
             }

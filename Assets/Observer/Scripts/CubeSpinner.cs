@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using UnityEngine;
 
@@ -10,21 +9,21 @@ namespace DesignPatterns.Observer
 
         bool _isSpinning = true;
 
-        ISubject stateSubject;
+        ISubject _stateSubject;
 
         void OnEnable()
         {
-            if (stateSubject == null)
+            if (_stateSubject == null)
             {
-                stateSubject = FindObjectsByType<MonoBehaviour>(0).OfType<ISubject>().FirstOrDefault();
+                _stateSubject = FindObjectsByType<MonoBehaviour>(0).OfType<ISubject>().FirstOrDefault();
             }
 
-            stateSubject.RegisterObserver(this);
+            _stateSubject.RegisterObserver(this);
         }
 
         void OnDisable()
         {
-            stateSubject.UnregisterObserver(this);
+            _stateSubject.UnregisterObserver(this);
         }
 
         void Update()
