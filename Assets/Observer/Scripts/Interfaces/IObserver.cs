@@ -3,6 +3,6 @@ namespace DesignPatterns.Observer
 {
     public interface IObserver
     {
-        public bool UpdateGameState();
+        public void UpdateGameState(bool state);
     }
 }
