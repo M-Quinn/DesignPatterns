@@ -8,7 +8,7 @@ namespace DesignPatterns.Observer
 {
     public class StateManager : MonoBehaviour, ISubject
     {
-        private bool _gameIsPaused = false;
+        private bool _gameIsPlaying = true;
         List<IObserver> _observers = new List<IObserver>();
 
         [SerializeField] private Button _button;
@@ -23,7 +23,7 @@ namespace DesignPatterns.Observer
 
             if (_buttonText != null)
             {
-                _buttonText.text = _gameIsPaused ? "Start Game" : "Pause Game";
+                _buttonText.text = _gameIsPlaying ? "Pause Game" : "Start Game";
             }
         }
 
@@ -49,19 +49,19 @@ namespace DesignPatterns.Observer
         {
             foreach (var observer in _observers)
             {
-                observer.UpdateGameState(_gameIsPaused);
+                observer.UpdateGameState(_gameIsPlaying);
             }
         }
 
         void ToggleGameState()
         {
-            _gameIsPaused = !_gameIsPaused;
+            _gameIsPlaying = !_gameIsPlaying;
 
             NotifyObservers();
             
             if (_buttonText != null)
             {
-                _buttonText.text = _gameIsPaused ? "Start Game" : "Pause Game";
+                _buttonText.text = _gameIsPlaying ? "Pause Game" : "Start Game";
             }
         }
     }
