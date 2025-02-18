@@ -4,8 +4,12 @@ using UnityEngine;
 
 namespace DesignPatterns.Observer
 {
-    public class AudioManager : MonoBehaviour, IObserver
+    public class CubeSpinner : MonoBehaviour, IObserver
     {
+        [SerializeField] GameObject _cube;
+
+        bool _isStopped = false;
+
         ISubject stateSubject;
 
         void OnEnable()
@@ -23,9 +27,18 @@ namespace DesignPatterns.Observer
             stateSubject.UnregisterObserver(this);
         }
 
+        void Update()
+        {
+            if (!_isStopped)
+            {
+                _cube.transform.Rotate(new Vector3(0,16 *Time.deltaTime,0));
+            }
+        }
+
         public void UpdateGameState(bool state)
         {
-            Debug.Log("Audio Manager state changed to " + state);
+            Debug.Log("Cube Spinner got the update " + state);
+            _isStopped = state;
         }
     }
 }
