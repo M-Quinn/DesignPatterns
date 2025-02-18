@@ -1,16 +1,25 @@
+using System;
 using UnityEngine;
 
-public class UiManager : MonoBehaviour
+namespace DesignPatterns.Observer
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class UiManager : MonoBehaviour, IObserver
     {
-        
-    }
+        [SerializeField] private ISubject stateSubject;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void OnEnable()
+        {
+            stateSubject.RegisterObserver(this);
+        }
+
+        void OnDisable()
+        {
+            stateSubject.UnregisterObserver(this);
+        }
+
+        public void UpdateGameState(bool state)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
