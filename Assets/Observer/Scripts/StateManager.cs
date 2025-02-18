@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,21 +11,27 @@ namespace DesignPatterns.Observer
         private bool _gameIsPaused = false;
         List<IObserver> _observers = new List<IObserver>();
 
-        [SerializeField] private Button button;
+        [SerializeField] private Button _button;
+        [SerializeField] private TMP_Text _buttonText;
 
         void OnEnable()
         {
-            if (button != null)
+            if (_button != null)
             {
-                button.onClick.AddListener(ToggleGameState);
+                _button.onClick.AddListener(ToggleGameState);
+            }
+
+            if (_buttonText != null)
+            {
+                _buttonText.text = _gameIsPaused ? "Start Game" : "Pause Game";
             }
         }
 
         void OnDisable()
         {
-            if (button != null)
+            if (_button != null)
             {
-                button.onClick.RemoveListener(ToggleGameState);
+                _button.onClick.RemoveListener(ToggleGameState);
             }
         }
 
@@ -49,7 +56,13 @@ namespace DesignPatterns.Observer
         void ToggleGameState()
         {
             _gameIsPaused = !_gameIsPaused;
+
             NotifyObservers();
+            
+            if (_buttonText != null)
+            {
+                _buttonText.text = _gameIsPaused ? "Start Game" : "Pause Game";
+            }
         }
     }
 }
