@@ -1,14 +1,20 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 namespace DesignPatterns.Observer
 {
     public class UiManager : MonoBehaviour, IObserver
     {
-        [SerializeField] private ISubject stateSubject;
+        ISubject stateSubject;
 
         void OnEnable()
         {
+            if (stateSubject == null)
+            {
+                stateSubject = FindObjectsByType<MonoBehaviour>(0).OfType<ISubject>().FirstOrDefault();
+            }
+
             stateSubject.RegisterObserver(this);
         }
 
@@ -19,7 +25,7 @@ namespace DesignPatterns.Observer
 
         public void UpdateGameState(bool state)
         {
-            throw new NotImplementedException();
+            Debug.Log("UI Manager state changed to " + state);
         }
     }
 }
