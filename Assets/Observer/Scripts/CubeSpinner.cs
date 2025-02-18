@@ -8,7 +8,7 @@ namespace DesignPatterns.Observer
     {
         [SerializeField] GameObject _cube;
 
-        bool _isStopped = false;
+        bool _isSpinning = true;
 
         ISubject stateSubject;
 
@@ -29,7 +29,7 @@ namespace DesignPatterns.Observer
 
         void Update()
         {
-            if (!_isStopped)
+            if (_isSpinning)
             {
                 _cube.transform.Rotate(new Vector3(0,16 *Time.deltaTime,0));
             }
@@ -38,7 +38,7 @@ namespace DesignPatterns.Observer
         public void UpdateGameState(bool state)
         {
             Debug.Log("Cube Spinner got the update " + state);
-            _isStopped = state;
+            _isSpinning = state;
         }
     }
 }
