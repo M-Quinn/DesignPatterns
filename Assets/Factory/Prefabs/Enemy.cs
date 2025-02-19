@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+namespace DesignPatterns.Factory
 {
-    public Color Color { get; set; }
-    public string Weapon { get; set; }
-
-    public virtual void Init(Color color, string weapon)
+    public class Enemy : MonoBehaviour
     {
-        Color = color;
-        Weapon = weapon;
-        GetComponent<Renderer>().material.color = Color;
+        public Color Color { get; set; }
+        public string Weapon { get; set; }
+
+        public virtual void Init(Color color, string weapon)
+        {
+            Color = color;
+            Weapon = weapon;
+            GetComponent<Renderer>().material.color = Color;
+        }
     }
 }
