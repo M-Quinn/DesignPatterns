@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Color Color { get; set; }
+    public string Weapon { get; set; }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Init(Color color, string weapon)
     {
-        
+        Color = color;
+        Weapon = weapon;
+        GetComponent<Renderer>().material.color = Color;
     }
 }
