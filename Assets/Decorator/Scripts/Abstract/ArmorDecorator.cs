@@ -1,6 +1,13 @@
 using UnityEngine;
 
-public abstract class ArmorDecorator : Armor
+namespace DesignPatterns.Decorator
 {
-    public abstract string GetDescription();
+    public abstract class ArmorDecorator : Armor
+    {
+        protected Armor _armor;
+        public ArmorDecorator(Armor armor)
+        {
+            _armor = armor;
+        }
+    }
 }

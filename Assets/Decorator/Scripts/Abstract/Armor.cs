@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public abstract class Armor
+namespace DesignPatterns.Decorator
 {
-    private string description = "Unknown";
-
-    public string GetDescription()
+    public abstract class Armor
     {
-        return description;
-    }
+        public string description = "Unknown";
 
-    public abstract float GetArmorStats();
+        public virtual string GetDescription()
+        {
+            return description;
+        }
+
+        public abstract float GetArmorStats();
+    }
 }
