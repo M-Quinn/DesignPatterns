@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public enum EnemyType
+namespace DesignPatterns.Factory
 {
-    BRUTE,
-    SHARPSHOOTER,
-    CAPTAIN,
-    STRIKER,
-    TRAPMASTER,
-    PICKPOCKET
+    public enum EnemyType
+    {
+        BRUTE,
+        SHARPSHOOTER,
+        CAPTAIN,
+        STRIKER,
+        TRAPMASTER,
+        PICKPOCKET
+    }
 }
