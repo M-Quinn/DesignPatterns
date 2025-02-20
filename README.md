@@ -8,5 +8,6 @@ Design Pattern | Article
 -----------|-----------
 Singleton Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-the-singleton-pattern-1cfdfac7c999)
 Command Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-the-command-pattern-f87273ae96d0)
-Observer Pattern | Publishing Thursday 2/20/2025
+Observer Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-the-observer-pattern-767ac65ed7bb)
 Decorator Pattern | Publishing Friday 2/21/2025
+Factor Pattern | Being Developed
