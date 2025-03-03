@@ -15,17 +15,17 @@ namespace DesignPatterns.Adapter.Legacy
         {
             StringBuilder sb = new StringBuilder();
             string colorStart = string.Empty;
-            string colorEnd = "</color>";
+            string colorEnd = "</color>\n";
             switch (selection)
             {
                 case 0:
-                    colorStart = "<color=\"black\"";
+                    colorStart = "<color=\"black\">";
                     break;
                 case 1:
-                    colorStart = "<color=\"red\"";
+                    colorStart = "<color=\"red\">";
                     break;
                 case 2:
-                    colorStart = "<color=\"blue\"";
+                    colorStart = "<color=\"blue\">";
                     break;
             }
 
