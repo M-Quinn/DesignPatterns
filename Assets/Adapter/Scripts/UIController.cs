@@ -8,14 +8,14 @@ namespace DesignPatterns.Adapter
     {
         [SerializeField] TMP_Text textbox;
 
-        OldLegacyCode _legacyCode = new();
+        private StringFormatAdapter stringFormat = new(new OldLegacyCode());
 
 
         void Start()
         {
-            textbox.text = _legacyCode.FormatLog("Message 1", 0);
-            textbox.text += _legacyCode.FormatLog("Message 2", 1);
-            textbox.text += _legacyCode.FormatLog("Message 3", 2);
+            textbox.text = stringFormat.FormatText("Message 1", TextColor.BLACK);
+            textbox.text += stringFormat.FormatText("Message 2", TextColor.RED);
+            textbox.text += stringFormat.FormatText("Message 3", TextColor.BLUE);
         }
 
     }
