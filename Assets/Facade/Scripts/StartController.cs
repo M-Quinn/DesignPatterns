@@ -1,16 +1,18 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class StartController : MonoBehaviour
+namespace DesignPatterns.Facade
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class StartController : MonoBehaviour
     {
-        
-    }
+        public Action StartGame;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [SerializeField] Button _startButton;
+
+        void Awake()
+        {
+            _startButton.onClick.AddListener(() => StartGame?.Invoke());
+        }
     }
 }

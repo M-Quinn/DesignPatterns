@@ -394,7 +394,7 @@ RectTransform:
   m_Father: {fileID: 7018156124394832579}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1258,6 +1258,7 @@ MonoBehaviour:
   _appleTreesSlider: {fileID: 5299184022293640385}
   _buyAppleTreeButton: {fileID: 7204998983408255770}
   _sellApplesButton: {fileID: 5488900899093873805}
+  _pauseButton: {fileID: 0}
 --- !u!1 &5573971637635461142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,7 +1790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9095735925562870330
 RectTransform:
   m_ObjectHideFlags: 0

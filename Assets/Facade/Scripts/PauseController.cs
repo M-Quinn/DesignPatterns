@@ -1,16 +1,21 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PauseController : MonoBehaviour
+namespace DesignPatterns.Facade
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class PauseController : MonoBehaviour
     {
-        
-    }
+        [SerializeField] Button _backToGameButton;
+        [SerializeField] Button _exitButton;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public Action StartPanel;
+        public Action GamePanel;
+
+        void Awake()
+        {
+            _backToGameButton.onClick.AddListener(() => GamePanel?.Invoke());
+            _exitButton.onClick.AddListener(() => StartPanel?.Invoke());
+        }
     }
 }
