@@ -8,6 +8,8 @@ namespace DesignPatterns.Facade
         [SerializeField] private PauseController _pauseController;
         [SerializeField] private StartController _startController;
 
+        private PanelTransitionFacade _transition = new();
+
         void Start()
         {
             _gameController.PauseGame += OpenPausePanel;
@@ -15,19 +17,26 @@ namespace DesignPatterns.Facade
             _pauseController.StartPanel += OpenStartPanel;
             _pauseController.GamePanel += OpenGamePanel;
 
-            OpenStartPanel();
+            _transition.AddPanel(_startController);
+            _transition.AddPanel(_gameController);
+            _transition.AddPanel(_pauseController);
+
+            _transition.InitPanels(_startController);
         }
 
         void OpenPausePanel()
         {
+            _transition.TransitionPanel(_pauseController);
         }
 
         void OpenGamePanel()
         {
+            _transition.TransitionPanel(_gameController);
         }
 
         void OpenStartPanel()
         {
+            _transition.TransitionPanel(_startController);
         }
     }
 }

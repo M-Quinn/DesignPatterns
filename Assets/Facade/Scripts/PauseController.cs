@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace DesignPatterns.Facade
 {
-    public class PauseController : MonoBehaviour
+    public class PauseController : MonoBehaviour, IPanel
     {
         [SerializeField] Button _backToGameButton;
         [SerializeField] Button _exitButton;
@@ -16,6 +16,16 @@ namespace DesignPatterns.Facade
         {
             _backToGameButton.onClick.AddListener(() => GamePanel?.Invoke());
             _exitButton.onClick.AddListener(() => StartPanel?.Invoke());
+        }
+
+        public void OpenPanel()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ClosePanel()
+        {
+            throw new NotImplementedException();
         }
     }
 }

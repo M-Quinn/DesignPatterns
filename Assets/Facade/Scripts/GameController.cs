@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace DesignPatterns.Facade
 {
-    public class GameController : MonoBehaviour
+    public class GameController : MonoBehaviour, IPanel
     {
 
         [SerializeField] TMP_Text _moneyTextbox;
@@ -70,6 +70,16 @@ namespace DesignPatterns.Facade
         {
             _money += _apples;
             _apples = 0;
+        }
+
+        public void OpenPanel()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ClosePanel()
+        {
+            throw new NotImplementedException();
         }
     }
 }

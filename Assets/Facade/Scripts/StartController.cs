@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace DesignPatterns.Facade
 {
-    public class StartController : MonoBehaviour
+    public class StartController : MonoBehaviour, IPanel
     {
         public Action StartGame;
 
@@ -13,6 +13,16 @@ namespace DesignPatterns.Facade
         void Awake()
         {
             _startButton.onClick.AddListener(() => StartGame?.Invoke());
+        }
+
+        public void OpenPanel()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ClosePanel()
+        {
+            throw new NotImplementedException();
         }
     }
 }
