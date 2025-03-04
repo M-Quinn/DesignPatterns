@@ -20,7 +20,7 @@ namespace DesignPatterns.Facade
         int _apples;
         int _appleTrees = 1;
 
-        bool _isPlaying = true;
+        bool _isPlaying = false;
 
         float _delayedTime = 2;
         float _elapsedTime;
@@ -74,12 +74,14 @@ namespace DesignPatterns.Facade
 
         public void OpenPanel()
         {
-            throw new NotImplementedException();
+            transform.GetChild(0).gameObject.SetActive(true);
+            _isPlaying = true;
         }
 
         public void ClosePanel()
         {
-            throw new NotImplementedException();
+            transform.GetChild(0).gameObject.SetActive(false);
+            _isPlaying = false;
         }
     }
 }

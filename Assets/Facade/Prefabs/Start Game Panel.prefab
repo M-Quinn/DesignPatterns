@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 6981395639969519353}
   - component: {fileID: 5434178067420738418}
   - component: {fileID: 6769755035999447759}
+  - component: {fileID: 7212413709993982144}
   m_Layer: 5
   m_Name: Start Game Panel
   m_TagString: Untagged
@@ -374,6 +375,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7212413709993982144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7622923827793214207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1497670dea8f9964b9d9a14ab80ab3d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startButton: {fileID: 8564648388592745638}
 --- !u!1 &8207883526517186817
 GameObject:
   m_ObjectHideFlags: 0

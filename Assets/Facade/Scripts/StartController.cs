@@ -17,12 +17,12 @@ namespace DesignPatterns.Facade
 
         public void OpenPanel()
         {
-            throw new NotImplementedException();
+            transform.GetChild(0).gameObject.SetActive(true);
         }
 
         public void ClosePanel()
         {
-            throw new NotImplementedException();
+            transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 }

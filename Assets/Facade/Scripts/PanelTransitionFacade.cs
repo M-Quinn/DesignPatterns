@@ -15,7 +15,7 @@ namespace DesignPatterns.Facade
 
         public void InitPanels(IPanel panel)
         {
-            panel.ClosePanel();
+            CloseAllPanels();
             _currentPanel = panel;
             _currentPanel.OpenPanel();
         }
