@@ -12,4 +12,5 @@ Observer Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-the-observ
 Decorator Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-decorator-pattern-a375f6f4d462)
 Factor Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-factory-pattern-0af7ffff2eb5)
 Adapter Pattern | Publishing Tuesday 3/4/2025
-Facade Pattern | TBD
+Facade Pattern | Publishing Thursday 3/6/2025
+Template Pattern | TBD
