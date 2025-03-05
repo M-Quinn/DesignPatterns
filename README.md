@@ -11,6 +11,6 @@ Command Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-the-command
 Observer Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-the-observer-pattern-767ac65ed7bb)
 Decorator Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-decorator-pattern-a375f6f4d462)
 Factor Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-factory-pattern-0af7ffff2eb5)
-Adapter Pattern | Publishing Tuesday 3/4/2025
+Adapter Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-adapter-pattern-bee31af80739)
 Facade Pattern | Publishing Thursday 3/6/2025
 Template Pattern | TBD
