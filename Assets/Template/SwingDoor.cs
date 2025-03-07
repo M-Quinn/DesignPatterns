@@ -5,9 +5,7 @@ namespace DesignPatterns.Template
 {
     public class Door : Interactable
     {
-
         Coroutine _coroutine;
-
         
         void Start()
         {
@@ -21,7 +19,6 @@ namespace DesignPatterns.Template
                 StopCoroutine(_coroutine);
             _coroutine = StartCoroutine(SwingDoorRoutine());
         }
-
 
         IEnumerator SwingDoorRoutine()
         {
@@ -41,6 +38,5 @@ namespace DesignPatterns.Template
             transform.rotation = Quaternion.Euler(0, -90, 0);
         }
 
-        
     }
 }

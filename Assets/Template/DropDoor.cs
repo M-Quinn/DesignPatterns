@@ -18,9 +18,5 @@ namespace DesignPatterns.Template
             _rb.AddForce(Vector3.forward * 10f, ForceMode.Impulse);
             _isInteractable = false;
         }
-
-
-
     }
-
 }

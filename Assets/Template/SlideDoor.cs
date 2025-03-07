@@ -19,7 +19,6 @@ namespace DesignPatterns.Template
             _coroutine = StartCoroutine(SlideDoorRoutine());
         }
 
-
         IEnumerator SlideDoorRoutine()
         {
             float totalTime = 1.4f;

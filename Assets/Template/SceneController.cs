@@ -1,33 +1,35 @@
-using DesignPatterns.Template;
 using UnityEngine;
 
-public class SceneController : MonoBehaviour
+namespace DesignPatterns.Template
 {
-    private Camera mainCamera;
-
-    private void Start()
+    public class SceneController : MonoBehaviour
     {
-        mainCamera = Camera.main;
-    }
+        private Camera mainCamera;
 
-    private void Update()
-    {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out var hit))
+        private void Start()
         {
-            if (hit.collider.transform.parent == null)
-                return;
+            mainCamera = Camera.main;
+        }
 
-            if(hit.collider.transform.parent.TryGetComponent<Interactable>(out var interactable))
+        private void Update()
+        {
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out var hit))
             {
-                if (!interactable.IsInteractable())
+                if (hit.collider.transform.parent == null)
                     return;
 
-                if(Input.GetMouseButtonDown(0))
-                    interactable.PerformInteraction();
+                if (hit.collider.transform.parent.TryGetComponent<Interactable>(out var interactable))
+                {
+                    if (!interactable.IsInteractable())
+                        return;
+
+                    if (Input.GetMouseButtonDown(0))
+                        interactable.PerformInteraction();
+                }
             }
         }
-    }
 
+    }
 }
