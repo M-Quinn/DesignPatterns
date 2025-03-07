@@ -15,7 +15,8 @@ namespace DesignPatterns.Template
 
         public override void PerformInteraction()
         {
-            _rb.AddForce(Vector3.back*10f, ForceMode.Impulse);
+            _rb.AddForce(Vector3.forward * 10f, ForceMode.Impulse);
+            _isInteractable = false;
         }
 
 

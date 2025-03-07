@@ -25,6 +25,7 @@ namespace DesignPatterns.Template
             float totalTime = 1.4f;
             float elapsedTime = 0;
             float value;
+            Vector3 curVector3 = transform.position;
 
 
             while (elapsedTime / totalTime <= 1.0f)
@@ -32,10 +33,13 @@ namespace DesignPatterns.Template
                 elapsedTime += Time.deltaTime;
                 value = elapsedTime / totalTime;
 
-                transform.position = new Vector3(0, Mathf.Lerp(0, -2, value), 0);
+                curVector3.y = Mathf.Lerp(0, -2.4f, value);
+
+                transform.position = curVector3;
                 yield return null;
             }
-            transform.position = new Vector3(0, -2, 0);
+            curVector3.y = -2.4f;
+            transform.position = curVector3;
         }
     }
 }

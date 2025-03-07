@@ -4,7 +4,7 @@ namespace DesignPatterns.Template
 {
     public abstract class Interactable: MonoBehaviour
     {
-        private bool _isInteractable = true;
+        protected bool _isInteractable = true;
 
         public bool IsInteractable()
         {
