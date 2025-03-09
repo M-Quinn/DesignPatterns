@@ -12,28 +12,38 @@ namespace DesignPatterns.Composite
         [SerializeField] Button _getInventoryButton;
         [SerializeField] TMP_Text _outputTextbox;
 
-        InventoryIterator _inventoryIterator = new(new Inventory().Items);
+        //InventoryIterator _inventoryIterator;
 
         void Awake()
         {
+            //_inventoryIterator = new InventoryIterator(BuildTheInventory());
 
-            _getInventoryButton.onClick.AddListener(() => DisplayAnything(_inventoryIterator));
+            _getInventoryButton.onClick.AddListener(() => DisplayInventory(BuildTheInventory()));
 
             _outputTextbox.text = string.Empty;
         }
 
-        void DisplayAnything(IIterator iterator)
+        void DisplayInventory(ItemComponent inventory)
         {
-            iterator.Reset();
+            _outputTextbox.text = inventory.DisplayInformation();
+        }
 
-            StringBuilder sb = new StringBuilder();
-            while (iterator.HasNext())
-            {
-                sb.Append(((Item)iterator.Next()).Name);
-                sb.Append("\n");
-            }
+        ItemComponent BuildTheInventory()
+        {
+            ItemComponent inventory = new Inventory(string.Empty);
+            inventory.Add(new Item("Bronze Sword"));
+            inventory.Add(new Item("Iron Axe"));
 
-            _outputTextbox.text = sb.ToString();
+            ItemComponent smallBag = new Inventory("Small Bag", true);
+            smallBag.Add(new Item("Leather Hat"));
+            smallBag.Add(new Item("Broken Bowl"));
+            smallBag.Add(new Item("Toy Figure"));
+
+            inventory.Add(smallBag);
+            inventory.Add(new Item("Iron Helmet"));
+            inventory.Add(new Item("Steel Boots"));
+
+            return inventory;
         }
     }
 }

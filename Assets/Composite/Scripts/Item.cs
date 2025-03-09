@@ -2,12 +2,17 @@ using UnityEngine;
 
 namespace DesignPatterns.Composite
 {
-    public class Item
+    public class Item : ItemComponent
     {
-        public string Name;
+        string _name;
         public Item(string name)
         {
-            Name = name;
+            _name = name;
+        }
+
+        public override string GetName()
+        {
+            return _name;
         }
     }
 }
