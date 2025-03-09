@@ -4,7 +4,7 @@ This project is built in C# Unity 6.
 Programming design patterns can be hard to understand so this is a collection of practical examples for learning purposes.
 This project aims to showcase 22 design patterns in C#/Unity for educational purposes.
 
-Progress: 36% finished | Currently showcasing 8 out of 22 patterns
+Progress: 45% finished | Currently showcasing 10 out of 22 patterns
 
 ## Current Design Patterns Included ##
 Design Pattern | Article
@@ -18,11 +18,10 @@ Adapter Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-t
 Facade Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-facade-pattern-2db198b06558?sk=773aeb128fc8c168669ff0925956ed58)
 Template Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-template-pattern-fda248a1a0e8?sk=850dd92987c1a465e9bfaf417eda1c19)
 Iterator Pattern | Publishing March 10, 2025
+Composite Pattern | Publishing March 11, 2025
 
 
 Design Patterns Coming Soon
-- Iterator Pattern
-- Composite Pattern
 - State Pattern
 - Proxy Pattern
 - Compound Pattern
