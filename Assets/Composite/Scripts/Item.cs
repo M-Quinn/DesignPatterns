@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace DesignPatterns.Composite
 {
     public class Item : ItemComponent
