@@ -15,14 +15,18 @@ namespace DesignPatterns.Iterator
 
         public bool HasNext()
         {
-            return _index < _items.Count;
+            if (_index < _items.Count)
+            {
+                return true;
+            }
+
+            _index = 0;
+            return false;
         }
 
         public object Next()
         {
-            var value = _items[_index];
-            _index = (_index + 1) % _items.Count;
-            return value;
+            return _items[_index++]; ;
         }
 
         public void Reset()

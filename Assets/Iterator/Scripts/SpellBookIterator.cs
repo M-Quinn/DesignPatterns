@@ -1,13 +1,15 @@
 
 using System;
 using System.Linq;
+using static UnityEditor.Progress;
+using System.Reflection;
 
 namespace DesignPatterns.Iterator
 {
     public class SpellBookIterator : IIterator
     {
         private Spell[] _spells;
-        private int index = 0;
+        private int _index = 0;
 
         public SpellBookIterator(Spell[] spells)
         {
@@ -17,19 +19,23 @@ namespace DesignPatterns.Iterator
 
         public bool HasNext()
         {
-            return index < _spells.Length;
+            if (_index < _spells.Length)
+            {
+                return true;
+            }
+
+            _index = 0;
+            return false;
         }
 
         public object Next()
         {
-            var spell = _spells[index];
-            index = (index + 1) % _spells.Length;
-            return spell;
+            return _spells[_index++];
         }
 
         public void Reset()
         {
-            index = 0;
+            _index = 0;
         }
 
         public bool Add(object value)
