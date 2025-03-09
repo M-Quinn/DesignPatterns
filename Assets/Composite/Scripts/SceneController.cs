@@ -12,12 +12,8 @@ namespace DesignPatterns.Composite
         [SerializeField] Button _getInventoryButton;
         [SerializeField] TMP_Text _outputTextbox;
 
-        //InventoryIterator _inventoryIterator;
-
-        void Awake()
+       void Awake()
         {
-            //_inventoryIterator = new InventoryIterator(BuildTheInventory());
-
             _getInventoryButton.onClick.AddListener(() => DisplayInventory(BuildTheInventory()));
 
             _outputTextbox.text = string.Empty;

@@ -1,35 +1,37 @@
 using System;
 using System.Collections.Generic;
 
-public abstract class ItemComponent
+namespace DesignPatterns.Composite
 {
-    protected List<ItemComponent> Children = new List<ItemComponent>();
-
-    public abstract string GetName();
-
-    public void Add(ItemComponent itemComponent)
+    public abstract class ItemComponent
     {
-        Children.Add(itemComponent);
-    }
+        protected List<ItemComponent> Children = new List<ItemComponent>();
 
-    public void Remove(ItemComponent itemComponent)
-    {
-        Children.Remove(itemComponent);
-    }
+        public abstract string GetName();
 
-    public ItemComponent GetChild(int i)
-    {
-        if (i >= 0 && i < Children.Count)
+        public void Add(ItemComponent itemComponent)
         {
-            return Children[i];
+            Children.Add(itemComponent);
         }
-        return null;
+
+        public void Remove(ItemComponent itemComponent)
+        {
+            Children.Remove(itemComponent);
+        }
+
+        public ItemComponent GetChild(int i)
+        {
+            if (i >= 0 && i < Children.Count)
+            {
+                return Children[i];
+            }
+
+            return null;
+        }
+
+        public virtual string DisplayInformation()
+        {
+            return $"Item: " + GetName();
+        }
     }
-
-    public virtual string DisplayInformation()
-    {
-        return $"Item: " + GetName();
-    }
-
-
 }
