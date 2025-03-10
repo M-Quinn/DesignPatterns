@@ -17,7 +17,7 @@ Factory Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-t
 Adapter Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-adapter-pattern-bee31af80739?sk=27e8ad042aad8b9c157d379fa6ce6115)
 Facade Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-facade-pattern-2db198b06558?sk=773aeb128fc8c168669ff0925956ed58)
 Template Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-template-pattern-fda248a1a0e8?sk=850dd92987c1a465e9bfaf417eda1c19)
-Iterator Pattern | Publishing March 10, 2025
+Iterator Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-the-iterator-pattern-0dc756f9dbda?sk=fc4238fcd646f08d4ddd79134044433a)
 Composite Pattern | Publishing March 11, 2025
 State Pattern | Publishing March 13, 2025
 Proxy Pattern | Publishing March 14, 2025
