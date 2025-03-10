@@ -33,7 +33,7 @@ namespace DesignPatterns.Proxy
             _door.transform.rotation = Quaternion.Euler(0, -90, 0);
         }
 
-        public void Open(bool hasKey)
+        public void Open(Key key)
         {
             OpenAsyncDoor();
         }

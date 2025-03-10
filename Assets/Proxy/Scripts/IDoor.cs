@@ -4,6 +4,6 @@ namespace DesignPatterns.Proxy
 {
     public interface IDoor
     {
-        public void Open(bool hasKey);
+        public void Open(Key key);
     }
 }

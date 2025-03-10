@@ -4,15 +4,18 @@ namespace DesignPatterns.Proxy
 {
     public class ProxyDoor : MonoBehaviour, IDoor
     {
-        public void Open(bool key)
+        private string _keyString = "gold key";
+
+        public void Open(Key key)
         {
-            if (key)
+            if (key.KeyString.ToLower() == _keyString)
             {
                 IDoor door = new RealDoor(gameObject);
-                door.Open(true);
+                door.Open(null);
+                Debug.Log($"Tried {key.KeyString} | Door Opens!");
             }
             else
-                Debug.Log("Door is locked!");
+                Debug.Log($"Tried {key.KeyString} | Door is locked!");
         }
     }
 }

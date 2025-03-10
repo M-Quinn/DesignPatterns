@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace DesignPatterns.Proxy
@@ -6,7 +7,7 @@ namespace DesignPatterns.Proxy
     {
         private Camera _mainCamera;
 
-        private bool _hasKey;
+        private List<Key> _keys = new List<Key>();
 
         private void Start()
         {
@@ -21,15 +22,18 @@ namespace DesignPatterns.Proxy
 
                 if (Physics.Raycast(ray, out var hit))
                 {
-                    if (hit.transform.CompareTag("Key"))
+                    if (hit.transform.TryGetComponent<Key>(out var key))
                     {
-                        _hasKey = true;
+                        _keys.Add(key);
                         Destroy(hit.transform.gameObject);
                         Debug.Log("Key picked up");
                     }
                     else if (hit.transform.parent.TryGetComponent<IDoor>(out IDoor door))
                     {
-                        door.Open(_hasKey);
+                        foreach (Key k in _keys)
+                        {
+                            door.Open(k);
+                        }
                     }
                 }
             }
