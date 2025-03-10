@@ -6,14 +6,6 @@ namespace DesignPatterns.Proxy
 {
     public class RealDoor : IDoor
     {
-        Coroutine _coroutine;
-
-        void Start()
-        {
-            //transform.GetChild(0).GetComponent<Renderer>().material.color = new Color(0.47f, 0.27f, 0.06f);
-
-        }
-
         private GameObject _door;
 
         public RealDoor(GameObject door)
