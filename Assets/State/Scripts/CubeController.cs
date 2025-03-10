@@ -4,50 +4,67 @@ namespace DesignPatterns.State
 {
     public class CubeController : MonoBehaviour
     {
-        private CharacterController controller;
-        private float playerSpeed = 7.0f;
+        private CharacterController _cController;
+        private float _playerSpeed = 7.0f;
 
         Vector3 _userMove;
 
-        private void Start()
+        private IState _currentState;
+        private IState _idleState;
+        private IState _sprintState;
+        private IState _walkState;
+
+        private void Awake()
         {
-            controller = gameObject.GetComponent<CharacterController>();
+            _cController = gameObject.GetComponent<CharacterController>();
+            Material mat = GetComponent<Renderer>().material;
+
+            _idleState = new IdleState(mat);
+            _walkState = new WalkState(mat, _playerSpeed, _cController);
+            _sprintState = new SprintState(mat, _playerSpeed * 1.5f, _cController);
+
+            _currentState = _idleState;
         }
 
         void Update()
         {
             _userMove = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
+            CheckStateChange();
+
+            _currentState.Tick();
+        }
+
+        void FixedUpdate()
+        {
+            _currentState.FixedTick();
+        }
+
+        void SetState(IState state)
+        {
+            if (_currentState != null)
+            {
+                _currentState.Exit();
+            }
+
+            _currentState = state;
+            _currentState.Enter();
+        }
+
+        void CheckStateChange()
+        {
             if (_userMove == Vector3.zero)
             {
-                Idle();
+                SetState(_idleState);
             }
             else if (Input.GetKey(KeyCode.LeftShift))
             {
-                
-                Sprint(_userMove);
+                SetState(_sprintState);
             }
             else
             {
-                Move(_userMove);
+                SetState(_walkState);
             }
-        }
-
-        void Idle()
-        {
-            GetComponent<Renderer>().material.color = Color.blue;
-        }
-
-        void Move(Vector3 movement)
-        {
-            GetComponent<Renderer>().material.color = Color.green;
-            controller.Move(movement *Time.deltaTime * playerSpeed);
-        }
-
-        void Sprint(Vector3 movement)
-        {
-            GetComponent<Renderer>().material.color = Color.magenta;
-            controller.Move(movement * Time.deltaTime * playerSpeed * 1.5f);
         }
     }
 }
