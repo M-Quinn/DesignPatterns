@@ -18,7 +18,7 @@ Adapter Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-t
 Facade Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-facade-pattern-2db198b06558?sk=773aeb128fc8c168669ff0925956ed58)
 Template Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-template-pattern-fda248a1a0e8?sk=850dd92987c1a465e9bfaf417eda1c19)
 Iterator Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-the-iterator-pattern-0dc756f9dbda?sk=fc4238fcd646f08d4ddd79134044433a)
-Composite Pattern | Publishing March 11, 2025
+Composite Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-composite-pattern-ca8342b7660d?sk=47d5b234c7721fbad4a75653231276b1)
 State Pattern | Publishing March 13, 2025
 Proxy Pattern | Publishing March 14, 2025
 
