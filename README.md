@@ -19,8 +19,8 @@ Facade Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-th
 Template Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-template-pattern-fda248a1a0e8?sk=850dd92987c1a465e9bfaf417eda1c19)
 Iterator Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-the-iterator-pattern-0dc756f9dbda?sk=fc4238fcd646f08d4ddd79134044433a)
 Composite Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-composite-pattern-ca8342b7660d?sk=47d5b234c7721fbad4a75653231276b1)
-State Pattern | Publishing March 13, 2025
-Proxy Pattern | Publishing March 14, 2025
+State Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-the-state-pattern-ee067fe8bf1b?sk=815c9d4995cc05e435df0d7393886eec)
+Proxy Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-proxy-pattern-1998c8e270b1?sk=94288784e4343a45a5c40ebe6832349e)
 
 
 Design Patterns Coming Soon
