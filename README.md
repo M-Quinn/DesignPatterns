@@ -4,7 +4,7 @@ This project is built in C# Unity 6.
 Programming design patterns can be hard to understand so this is a collection of practical examples for learning purposes.
 This project aims to showcase 22 design patterns in C#/Unity for educational purposes.
 
-Progress: 50% finished | Currently showcasing 12 out of 22 patterns
+Progress: 59% finished | Currently showcasing 13 out of 22 patterns
 
 ## Current Design Patterns Included ##
 Design Pattern | Article
