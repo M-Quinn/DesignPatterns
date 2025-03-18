@@ -1,12 +1,15 @@
 using System;
 using UnityEngine;
 
-public class Target : MonoBehaviour
+namespace DesignPatterns.Compound
 {
-    public Action Die;
-
-    private void OnTriggerEnter(Collider other)
+    public class Target : MonoBehaviour
     {
-        Die?.Invoke();
+        public Action Die;
+
+        private void OnTriggerEnter(Collider other)
+        {
+            Die?.Invoke();
+        }
     }
 }

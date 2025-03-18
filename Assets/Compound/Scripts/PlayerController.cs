@@ -5,30 +5,36 @@ namespace DesignPatterns.Compound
     public class PlayerController : MonoBehaviour
     {
         [Header("Stats")]
-        [SerializeField] private float _speed;
+        [SerializeField] float _speed;
         [Header("References")]
+        [SerializeField] Transform _childTransform; 
         [SerializeField] CharacterController _cController;
         [Header("Model References")] 
-        [SerializeField] private Material _mat;
-        private bool _foundTarget = false;
-        private GameObject _curTarget = null;
+        [SerializeField] Renderer _renderer;
+        
+        bool _foundTarget = false;
+        GameObject _curTarget = null;
 
-        private StateTransitionFacade _stateMachine;
+        StateTransitionFacade _stateMachine;
+        IState _idleState;
+        IState _huntingState;
+        IState _returnState;
 
         void Awake()
         {
+            Material mat = _renderer.material;
+            
             _stateMachine = new StateTransitionFacade();
-            IState idleState = new IdleState(_mat, transform, (x) => FoundTarget(x));
-            IState huntingState = new GoToTargetState(transform, ref _curTarget, _mat, _cController, ref _speed);
-            IState returnState = new ReturnToCenter(_mat, _cController, ref _speed);
+            _idleState = new IdleState(mat, _childTransform, (x) => FoundTarget(x));
+            _huntingState = new GoToTargetState(_childTransform, ref _curTarget, mat, _cController, ref _speed);
+            _returnState = new ReturnToCenter(_childTransform, mat, _cController, ref _speed);
             
             
+            _stateMachine.AddTransition(_huntingState, _returnState, TransitionToReturn);
+            _stateMachine.AddTransition(_returnState, _idleState, TransitionToIdle);
+            _stateMachine.AddTransition(_idleState, _huntingState, TransitionToHunting);
             
-            _stateMachine.AddAnyTransition(huntingState, TransitionToHunting);
-            _stateMachine.AddTransition(huntingState, returnState, TransitionToReturn);
-            _stateMachine.AddTransition(returnState, idleState, TransitionToIdle);
-            
-            _stateMachine.SetState(idleState);
+            _stateMachine.SetState(_idleState);
         }
 
 
@@ -38,6 +44,7 @@ namespace DesignPatterns.Compound
             {
                 _foundTarget = false;
                 _curTarget = null;
+                Debug.Log("Target is null now");
             }
             
             _stateMachine.Execute();
@@ -47,7 +54,11 @@ namespace DesignPatterns.Compound
         void FoundTarget(GameObject target)
         {
             _curTarget = target;
-            _foundTarget = true;
+            if (target != null)
+            {
+                ((GoToTargetState)_huntingState).UpdateTarget(_curTarget);
+                _foundTarget = true;
+            }
         }
 
         bool TransitionToHunting()
@@ -57,7 +68,7 @@ namespace DesignPatterns.Compound
 
         bool TransitionToReturn()
         {
-            if (transform.position.x != 0 && transform.position.z != 0 && !_foundTarget)
+            if (!_foundTarget)
             {
                 return true;
             }
@@ -67,7 +78,7 @@ namespace DesignPatterns.Compound
 
         bool TransitionToIdle()
         {
-            if (transform.position.x == 0 && transform.position.z == 0 && !_foundTarget)
+            if (Vector3.Distance(_childTransform.position, Vector3.zero) < 1 && !_foundTarget)
             {
                 return true;
             }

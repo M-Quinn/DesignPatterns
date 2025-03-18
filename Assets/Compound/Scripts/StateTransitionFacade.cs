@@ -6,11 +6,10 @@ namespace DesignPatterns.Compound
 {
     public class StateTransitionFacade
     {
-        private IState currentState;
-        private Dictionary<Type, List<Transition>> transitions = new Dictionary<Type, List<Transition>>();
-        private List<Transition> currentTransitions = new List<Transition>();
-        private List<Transition> anyTransitions = new List<Transition>();
-        private static List<Transition> EmptyTransitions = new List<Transition>();
+        IState _currentState;
+        Dictionary<Type, List<Transition>> _transitions = new Dictionary<Type, List<Transition>>();
+        List<Transition> _currentTransitions = new List<Transition>();
+        static List<Transition> _emptyTransitions = new List<Transition>();
 
         private class Transition
         {
@@ -32,53 +31,40 @@ namespace DesignPatterns.Compound
                 SetState(transition.To);
             }
 
-            currentState?.Tick();
+            _currentState?.Tick();
         }
 
         public void SetState(IState state)
         {
-            if (state == currentState)
+            if (state == _currentState)
                 return;
 
-            currentState?.Exit();
+            _currentState?.Exit();
 
-            currentState = state;
-            transitions.TryGetValue(currentState.GetType(), out currentTransitions);
-            if (currentTransitions == null)
+            _currentState = state;
+            _transitions.TryGetValue(_currentState.GetType(), out _currentTransitions);
+            if (_currentTransitions == null)
             {
-                currentTransitions = EmptyTransitions;
+                _currentTransitions = _emptyTransitions;
             }
 
-            currentState.Enter();
+            _currentState.Enter();
         }
 
         public void AddTransition(IState from, IState to, Func<bool> condition)
         {
-            if (transitions.TryGetValue(from.GetType(), out var _transitions) == false)
+            if (this._transitions.TryGetValue(from.GetType(), out var _transitions) == false)
             {
                 _transitions = new List<Transition>();
-                transitions[from.GetType()] = _transitions;
+                this._transitions[from.GetType()] = _transitions;
             }
 
             _transitions.Add(new Transition(to, condition));
         }
 
-        public void AddAnyTransition(IState to, Func<bool> condition)
+        Transition GetTransition()
         {
-            anyTransitions.Add(new Transition(to, condition));
-        }
-
-        private Transition GetTransition()
-        {
-            foreach (var transition in anyTransitions)
-            {
-                if (transition.Condition())
-                {
-                    return transition;
-                }
-            }
-
-            foreach (var transition in currentTransitions)
+            foreach (var transition in _currentTransitions)
             {
                 if (transition.Condition())
                 {

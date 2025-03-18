@@ -1,30 +1,39 @@
-using DesignPatterns.Compound;
 using UnityEngine;
 
-public class ReturnToCenter : IState
+namespace DesignPatterns.Compound
 {
-    private Material _mat;
-    private CharacterController _cController;
-    private float _speed;
+    public class ReturnToCenter : IState
+    {
+        Transform _playerTransform;
+        Material _mat;
+        CharacterController _cController;
+        float _speed;
 
-    public ReturnToCenter(Material mat, CharacterController cController, ref float speed)
-    {
-        _mat = mat;
-        _cController = cController;
-        _speed = speed;
-    }
-    public void Enter()
-    {
-        _mat.color = Color.green;
+        public ReturnToCenter(Transform playerTransfrom, Material mat, CharacterController cController, ref float speed)
+        {
+            _playerTransform = playerTransfrom;
+            _mat = mat;
+            _cController = cController;
+            _speed = speed;
+        }
+
+        public void Enter()
+        {
+            _mat.color = Color.green;
+            Debug.Log("Entering Hunting");
+        }
+
+        public void Exit()
+        {
+            _mat.color = Color.white;
+        }
+
+        public void Tick()
+        {
+            Vector3 direction = -_playerTransform.position.normalized;
+            direction.y = 0;
+            _cController.Move(direction * _speed * Time.deltaTime);
+        }
     }
 
-    public void Exit()
-    {
-        _mat.color = Color.white;
-    }
-
-    public void Tick()
-    {
-        _cController.Move(Vector3.zero * _speed * Time.deltaTime);
-    }
 }

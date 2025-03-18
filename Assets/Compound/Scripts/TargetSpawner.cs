@@ -1,28 +1,32 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public class TargetSpawner : MonoBehaviour
+namespace DesignPatterns.Compound
 {
-    [Header("Functional Settings")]
-        [SerializeField] float _delayBeforeNewTarget = 1f;
-    [Header("Scene References")] 
-        [SerializeField] Transform _spawnGroundTransform;
+    public class TargetSpawner : MonoBehaviour
+    {
+        [Header("Functional Settings")] [SerializeField]
+        float _delayBeforeNewTarget = 1f;
+
+        [Header("Scene References")] [SerializeField]
+        Transform _spawnGroundTransform;
+
         [SerializeField] MeshRenderer _spawnGroundRenderer;
-        [Header("External References")]
-        [SerializeField] GameObject _targetPrefab;
+
+        [Header("External References")] [SerializeField]
+        GameObject _targetPrefab;
 
         GameObject _targetObject;
         Target _target;
-        Vector3 minPosition, maxPosition;
+        Vector3 _minPosition;
+        Vector3 _maxPosition;
 
         private void Awake()
         {
             Bounds bounds = _spawnGroundRenderer.bounds;
-            minPosition = bounds.min;
-            maxPosition = bounds.max;
+            _minPosition = bounds.min;
+            _maxPosition = bounds.max;
 
             _targetObject = Instantiate(_targetPrefab, GetRandomPosition(), Quaternion.identity);
             _target = _targetObject.GetComponent<Target>();
@@ -38,9 +42,9 @@ public class TargetSpawner : MonoBehaviour
         Vector3 GetRandomPosition()
         {
             return new Vector3(
-                Random.Range(minPosition.x, maxPosition.x),
-                _spawnGroundTransform.position.y, 
-                Random.Range(minPosition.z, maxPosition.z)
+                Random.Range(_minPosition.x, _maxPosition.x),
+                _spawnGroundTransform.position.y,
+                Random.Range(_minPosition.z, _maxPosition.z)
             );
         }
 
@@ -50,4 +54,6 @@ public class TargetSpawner : MonoBehaviour
             _targetObject.transform.position = GetRandomPosition();
             _targetObject.SetActive(true);
         }
+    }
+
 }
