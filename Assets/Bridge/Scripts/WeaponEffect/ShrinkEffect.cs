@@ -38,6 +38,7 @@ namespace DesignPatterns.Bridge
 
                 _weaponObject.localScale = Vector3.Lerp(originalScale, newScale, value);
                 _weaponMaterial.color = Color.Lerp(_originalColor, _effectColor, value);
+                await Task.Yield();
             }
 
             _weaponObject.localScale = newScale;
@@ -51,6 +52,7 @@ namespace DesignPatterns.Bridge
 
                 _weaponObject.localScale = Vector3.Lerp(newScale, originalScale, value);
                 _weaponMaterial.color = Color.Lerp(_effectColor, _originalColor, value);
+                await Task.Yield();
             }
 
             _weaponObject.localScale = originalScale;
