@@ -7,6 +7,7 @@ This project aims to showcase 22 design patterns in C#/Unity for educational pur
 Progress: 64% finished | Currently showcasing 14 out of 22 patterns
 
 ## Current Design Patterns Included ##
+Every Pattern in the table is included in the repo regardless of if the article published yet or not
 Design Pattern | Article
 -----------|-----------
 Singleton Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-singleton-pattern-1cfdfac7c999?sk=22cf4fa70d05902a413e4984c487be61)
