@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Ignore JetBrains Rider/IntelliJ IDEA project files
+.idea/
+
