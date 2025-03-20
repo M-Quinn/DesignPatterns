@@ -25,16 +25,17 @@ namespace DesignPatterns.Bridge
         async Task GrowEffectAsync()
         {
             float totalTime = 0.8f;
+            float halfTime = totalTime / 2;
             float elapsedTime = 0;
             float value;
             Vector3 originalScale = _weaponObject.localScale;
             Vector3 newScale = originalScale * 1.5f;
 
 
-            while (elapsedTime / totalTime / 2 <= 1.0f)
+            while (elapsedTime / halfTime <= 1.0f)
             {
                 elapsedTime += Time.deltaTime;
-                value = elapsedTime / totalTime;
+                value = elapsedTime / halfTime;
 
                 _weaponObject.localScale = Vector3.Lerp(originalScale, newScale, value);
                 _weaponMaterial.color = Color.Lerp(_originalColor, _effectColor, value);
@@ -45,10 +46,10 @@ namespace DesignPatterns.Bridge
             _weaponMaterial.color = _effectColor;
 
             elapsedTime = 0;
-            while (elapsedTime / totalTime / 2 <= 1.0f)
+            while (elapsedTime / halfTime <= 1.0f)
             {
                 elapsedTime += Time.deltaTime;
-                value = elapsedTime / totalTime;
+                value = elapsedTime / halfTime;
 
                 _weaponObject.localScale = Vector3.Lerp(newScale, originalScale, value);
                 _weaponMaterial.color = Color.Lerp(_effectColor, _originalColor, value);
