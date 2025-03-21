@@ -22,12 +22,14 @@ namespace DesignPatterns.Builder
 
             if (MiddleSections != null)
             {
+                currentPosition.y += 0.5f;
                 foreach (GameObject middle in MiddleSections)
                 {
                     middle.transform.parent = transform;
                     middle.transform.localPosition = currentPosition;
                     currentPosition.y += middle.GetComponent<Renderer>().bounds.size.y;
                 }
+                currentPosition.y -= 0.5f;
             }
 
             if (TopSection != null)

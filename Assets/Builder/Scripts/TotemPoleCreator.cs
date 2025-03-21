@@ -14,8 +14,7 @@ namespace DesignPatterns.Builder
             GameObject totemObject = Instantiate(totemPrefab);
             if (totemObject.TryGetComponent<TotemPole>(out var totemPole))
             {
-                totemManager.ConstructTotem(new WoodenTotemPoleBuilder(totemPole), 1);
-                totemPole.Display();
+                totemManager.ConstructTotem(new WoodenTotemPoleBuilder(totemPole), 2);
             }
         }
     }

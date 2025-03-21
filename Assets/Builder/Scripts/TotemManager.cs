@@ -8,6 +8,9 @@ namespace DesignPatterns.Builder
         {
             builder.BuildBase();
             builder.BuildMiddleSections(middleSectionCount);
+            builder.BuildTop();
+            TotemPole tp = builder.GetResult();
+            tp.Display();
         }
     }
 }

@@ -33,12 +33,14 @@ namespace DesignPatterns.Builder
 
         public void BuildTop()
         {
-            throw new NotImplementedException();
+            GameObject topPrefab = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            topPrefab.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Wood");
+            _pole.TopSection = topPrefab;
         }
 
         public TotemPole GetResult()
         {
-            throw new NotImplementedException();
+            return _pole;
         }
     }
 }
