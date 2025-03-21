@@ -1,8 +1,6 @@
 
 using System;
 using System.Linq;
-using static UnityEditor.Progress;
-using System.Reflection;
 
 namespace DesignPatterns.Iterator
 {
