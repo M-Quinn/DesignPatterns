@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace DesignPatterns.Builder
 {
-    public class TotemManager
+    public class TotemDirector
     {
         public void ConstructTotem(ITotemPoleBuilder builder, int middleSectionCount)
         {

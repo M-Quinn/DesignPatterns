@@ -6,7 +6,7 @@ namespace DesignPatterns.Builder
     {
         [SerializeField] GameObject totemPrefab;
         
-        private TotemManager totemManager = new();
+        private TotemDirector _totemDirector = new();
         
 
         void Start()
@@ -14,7 +14,7 @@ namespace DesignPatterns.Builder
             GameObject totemObject = Instantiate(totemPrefab);
             if (totemObject.TryGetComponent<TotemPole>(out var totemPole))
             {
-                totemManager.ConstructTotem(new WoodenTotemPoleBuilder(totemPole), 2);
+                _totemDirector.ConstructTotem(new WoodenTotemPoleBuilder(totemPole), 2);
             }
         }
     }
