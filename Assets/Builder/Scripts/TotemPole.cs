@@ -17,23 +17,23 @@ namespace DesignPatterns.Builder
             {
                 BaseSection.transform.parent = transform;
                 BaseSection.transform.localPosition = currentPosition;
-                currentPosition.y += BaseSection.GetComponent<Renderer>().bounds.size.y;
+                currentPosition.y += BaseSection.GetComponent<Renderer>().bounds.size.y/2;
             }
 
             if (MiddleSections != null)
             {
-                currentPosition.y += 0.5f;
                 foreach (GameObject middle in MiddleSections)
                 {
+                    currentPosition.y += middle.GetComponent<Renderer>().bounds.size.y/2;
                     middle.transform.parent = transform;
                     middle.transform.localPosition = currentPosition;
-                    currentPosition.y += middle.GetComponent<Renderer>().bounds.size.y;
+                    currentPosition.y += middle.GetComponent<Renderer>().bounds.size.y/2;
                 }
-                currentPosition.y -= 0.5f;
             }
 
             if (TopSection != null)
             {
+                currentPosition.y += TopSection.GetComponent<Renderer>().bounds.size.y/2;
                 TopSection.transform.parent = transform;
                 TopSection.transform.localPosition = currentPosition;
             }
