@@ -7,15 +7,16 @@ namespace DesignPatterns.Builder
     {
         public GameObject BaseSection;
         public GameObject TopSection;
-        public GameObject[] MiddleSections;
+        public GameObject[] MiddleSections = null;
 
         public void Display()
         {
-            Vector3 currentPosition = transform.position;
+            Vector3 currentPosition = new Vector3(0, 0.5f, 0);
 
             if (BaseSection != null)
             {
-                Instantiate(BaseSection, currentPosition, Quaternion.identity, transform);
+                BaseSection.transform.parent = transform;
+                BaseSection.transform.localPosition = currentPosition;
                 currentPosition.y += BaseSection.GetComponent<Renderer>().bounds.size.y;
             }
 
@@ -23,14 +24,16 @@ namespace DesignPatterns.Builder
             {
                 foreach (GameObject middle in MiddleSections)
                 {
-                    Instantiate(middle, currentPosition, Quaternion.identity, transform);
+                    middle.transform.parent = transform;
+                    middle.transform.localPosition = currentPosition;
                     currentPosition.y += middle.GetComponent<Renderer>().bounds.size.y;
                 }
             }
 
             if (TopSection != null)
             {
-                Instantiate(TopSection, currentPosition, Quaternion.identity, transform);
+                TopSection.transform.parent = transform;
+                TopSection.transform.localPosition = currentPosition;
             }
         }
     }

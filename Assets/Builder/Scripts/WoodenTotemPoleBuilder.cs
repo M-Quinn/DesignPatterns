@@ -1,34 +1,44 @@
-using DesignPatterns.Builder;
+using System;
 using UnityEngine;
 
-public class WoodenTotemPoleBuilder : ITotemPoleBuilder
+namespace DesignPatterns.Builder
 {
-    TotemPole _pole;
+    public class WoodenTotemPoleBuilder : ITotemPoleBuilder
+    {
+        TotemPole _pole;
 
-    public WoodenTotemPoleBuilder(TotemPole pole)
-    {
-        _pole = pole;
-    }
-    
-    public void BuildBase()
-    {
-        GameObject baseGo = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        Renderer renderer = baseGo.GetComponent<Renderer>();
-        renderer.material = Resources.Load<Material>("Materials/Wood");
-    }
+        public WoodenTotemPoleBuilder(TotemPole pole)
+        {
+            _pole = pole;
+        }
 
-    public void BuildMiddleSections(int count)
-    {
-        throw new System.NotImplementedException();
-    }
+        public void BuildBase()
+        {
+            GameObject baseGo = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            Renderer renderer = baseGo.GetComponent<Renderer>();
+            renderer.material = Resources.Load<Material>("Materials/Wood");
+            _pole.BaseSection = baseGo;
+        }
 
-    public void BuildTop()
-    {
-        throw new System.NotImplementedException();
-    }
+        public void BuildMiddleSections(int count)
+        {
+            _pole.MiddleSections = new GameObject[count];
+            for (int i = 0; i < count; i++)
+            {
+                GameObject middlePrefab = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                middlePrefab.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Wood");
+                _pole.MiddleSections[i] = middlePrefab;
+            }
+        }
 
-    public TotemPole GetResult()
-    {
-        throw new System.NotImplementedException();
+        public void BuildTop()
+        {
+            throw new NotImplementedException();
+        }
+
+        public TotemPole GetResult()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

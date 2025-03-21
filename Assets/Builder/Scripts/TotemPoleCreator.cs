@@ -15,6 +15,7 @@ namespace DesignPatterns.Builder
             if (totemObject.TryGetComponent<TotemPole>(out var totemPole))
             {
                 totemManager.ConstructTotem(new WoodenTotemPoleBuilder(totemPole), 1);
+                totemPole.Display();
             }
         }
     }

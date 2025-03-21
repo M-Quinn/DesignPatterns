@@ -7,6 +7,7 @@ namespace DesignPatterns.Builder
         public void ConstructTotem(ITotemPoleBuilder builder, int middleSectionCount)
         {
             builder.BuildBase();
+            builder.BuildMiddleSections(middleSectionCount);
         }
     }
 }
