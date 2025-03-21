@@ -1,0 +1,12 @@
+using UnityEngine;
+
+namespace DesignPatterns.Builder
+{
+    public class TotemManager
+    {
+        public void ConstructTotem(ITotemPoleBuilder builder, int middleSectionCount)
+        {
+            builder.BuildBase();
+        }
+    }
+}
