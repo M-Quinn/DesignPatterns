@@ -22,7 +22,7 @@ Iterator Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-the-iterat
 Composite Pattern | [Medium Article](https://medium.com/unity-coder-corner/unity-the-composite-pattern-ca8342b7660d?sk=47d5b234c7721fbad4a75653231276b1)
 State Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-the-state-pattern-ee067fe8bf1b?sk=815c9d4995cc05e435df0d7393886eec)
 Proxy Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-proxy-pattern-1998c8e270b1?sk=94288784e4343a45a5c40ebe6832349e)
-Compound Pattern (Finite State Machine Example)| TBD 
+Compound Pattern (Finite State Machine Example)| [Medium Article](https://medium.com/@MJQuinn/unity-compound-pattern-creating-a-finite-state-machine-6c781876f4e0?sk=61531d5652a53613305f758da57c262a)
 Bridge Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-bridge-pattern-8533832c0981?sk=3e23d75044e465027df5250e4cdd0ddf)
 Builder Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-builder-pattern-43f6ef47436a?sk=061f12054d1cab99de7718c6c6330b7c)
 
