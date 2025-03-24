@@ -6,10 +6,16 @@ namespace DesignPatterns.ChainOfResponsibility
     {
         protected DamageHandler NextHandler;
 
-        public DamageHandler SetNextHandler(DamageHandler handler)
+        public void SetNextHandler(DamageHandler handler)
         {
-            NextHandler = handler;
-            return handler;
+            if (NextHandler == null)
+            {
+                NextHandler = handler;
+            }
+            else
+            {
+                NextHandler.SetNextHandler(handler);
+            }
         }
 
         public virtual float HandleDamage(float damage, string tag)

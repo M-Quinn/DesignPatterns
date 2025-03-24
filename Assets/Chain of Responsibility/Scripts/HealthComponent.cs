@@ -10,6 +10,12 @@ namespace DesignPatterns.ChainOfResponsibility
         public void Awake()
         {
             _damageHandler.SetNextHandler(new SteelArmorHandler());
+            _damageHandler.SetNextHandler(new WeakHandler());
+            _damageHandler.SetNextHandler(new SteelArmorHandler());
+            _damageHandler.SetNextHandler(new WeakHandler());
+            _damageHandler.SetNextHandler(new WeakHandler());
+
+
         }
 
         public void GetHit(float damage)

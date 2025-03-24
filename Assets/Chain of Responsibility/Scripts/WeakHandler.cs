@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace DesignPatterns.ChainOfResponsibility
 {
-    public class SteelArmorHandler : DamageHandler
+    public class WeakHandler : DamageHandler
     {
         public override float HandleDamage(float damage, string tag)
         {
-            Debug.Log("Steel handler checked");
-            if (string.Equals(tag.ToLower(), "armor"))
+            Debug.Log("Weak Handler checked");
+            if (string.Equals(tag.ToLower(), "key"))
             {
                 return damage * 0.6f;
             }
