@@ -1,16 +1,17 @@
-using DesignPatterns.ChainOfResponsibility;
-
-public class SteelArmorHandler: DamageHandler
+namespace DesignPatterns.ChainOfResponsibility
 {
-    public override float HandleDamage(float damage, string tag)
+    public class SteelArmorHandler : DamageHandler
     {
-        if (string.Equals(tag.ToLower(), "armor"))
+        public override float HandleDamage(float damage, string tag)
         {
-            return damage * 0.6f;
-        }
-        else
-        {
-            return base.HandleDamage(damage, tag);
+            if (string.Equals(tag.ToLower(), "armor"))
+            {
+                return damage * 0.6f;
+            }
+            else
+            {
+                return base.HandleDamage(damage, tag);
+            }
         }
     }
 }
