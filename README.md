@@ -4,7 +4,7 @@ This project is built in C# Unity 6.
 Programming design patterns can be hard to understand so this is a collection of practical examples for learning purposes.
 This project aims to showcase 22 design patterns in C#/Unity for educational purposes.
 
-Progress: 68% finished | Currently showcasing 15 out of 22 patterns
+Progress: 72% finished | Currently showcasing 16 out of 22 patterns
 
 ## Current Design Patterns Included ##
 Every Pattern in the table is included in the repo regardless of if the article published yet or not
@@ -25,11 +25,11 @@ Proxy Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-proxy-pattern
 Compound Pattern (Finite State Machine Example)| [Medium Article](https://medium.com/@MJQuinn/unity-compound-pattern-creating-a-finite-state-machine-6c781876f4e0?sk=61531d5652a53613305f758da57c262a)
 Bridge Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-bridge-pattern-8533832c0981?sk=3e23d75044e465027df5250e4cdd0ddf)
 Builder Pattern | [Medium Article](https://medium.com/@MJQuinn/unity-builder-pattern-43f6ef47436a?sk=061f12054d1cab99de7718c6c6330b7c)
+Chain of Responsibility | [Medium Article](https://medium.com/unity-coder-corner/unity-chain-of-responsibility-pattern-a2c140fc27a2?sk=cffcbccc69ba47f7e25a8e8c2e9ffe1c)
 
 
 
 Design Patterns Coming Soon
-- Chain of Responsibility Pattern
 - Flyweight Pattern
 - Interpreter Pattern
 - Mediator Pattern
