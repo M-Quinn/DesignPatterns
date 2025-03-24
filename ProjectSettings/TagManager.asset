@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Key
+  - Armor
   layers:
   - Default
   - TransparentFX

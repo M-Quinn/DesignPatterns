@@ -9,7 +9,7 @@ namespace DesignPatterns.ChainOfResponsibility
             Debug.Log("Weak Handler checked");
             if (string.Equals(tag.ToLower(), "key"))
             {
-                return damage * 0.6f;
+                return damage * 1.2f;
             }
             else
             {
